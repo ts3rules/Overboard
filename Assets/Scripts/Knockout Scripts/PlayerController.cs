@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
     private Rigidbody rb;
     private Vector2 movement;
+    public bool onFloor = true;
     public float speed = 5f; 
     public bool hasPowerUp = false;
     private int powerUpDuration = 5;
@@ -16,12 +17,17 @@ public class PlayerController : MonoBehaviour
     public Color PowerUpcolor = Color.red;
     public Renderer rend;
     private float powerUpFlicker = 2f;
+    public bool isDead = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody>();
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -31,12 +37,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+        PlayerSetup setup = GetComponent<PlayerSetup>();
+
+        if (!GameSettings.playerOrAI[setup.playerIndex])
+        {
+            return;
+        }
         SetMovement(value.Get<Vector2>());
     }
 
     private void FixedUpdate()
     {
         Vector3 move = new Vector3(movement.x, 0, movement.y);
+        move = move.normalized;
         rb.AddForce(move * speed);
 
     }
@@ -79,6 +92,23 @@ public class PlayerController : MonoBehaviour
     {
         movement = direction;
         Debug.Log(movement);
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            onFloor = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            onFloor = false;
+        }
+
     }
 
 

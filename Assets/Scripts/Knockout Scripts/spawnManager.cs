@@ -16,7 +16,7 @@ public class spawnManager : MonoBehaviour
     private bool isSpawning = false;
     private float spawnupper = 10f;
     private float spawnlower = 5f;
-    public int floorTimer = 20;
+    private int floorTimer = 5;
     public Renderer rend;
     public Color flashColor = Color.red;
     private Color originalColor;
@@ -83,13 +83,12 @@ public class spawnManager : MonoBehaviour
     private void DestroyFloor()
     {
         if (floor.Count == 0) return;
-        int floorIndex = Random.Range(0, floor.Count);
-        originalColor = rend.material.color;
-        floor[floorIndex].SetActive(false);
-        FlashFloor();
-        floor.RemoveAt(floorIndex);
-        Invoke(nameof(DestroyFloor), 1);
 
+        int floorIndex = Random.Range(0, floor.Count);
+
+        GameObject selectedFloor = floor[floorIndex];
+
+        StartCoroutine(DoFlash(selectedFloor, floorIndex));
     }
 
     public void FlashFloor()
@@ -99,11 +98,23 @@ public class spawnManager : MonoBehaviour
 
     }
 
-    private IEnumerable DoFlash()
+    private IEnumerator DoFlash(GameObject floorTile, int floorIndex)
     {
+        Renderer rend = floorTile.GetComponent<Renderer>();
+
+        Color originalColor = rend.material.color;
+
         rend.material.color = flashColor;
-        yield return new WaitForSeconds(0.1f);
+
+        yield return new WaitForSeconds(0.5f);
+
         rend.material.color = originalColor;
+
+        floorTile.SetActive(false);
+
+        floor.RemoveAt(floorIndex);
+
+        Invoke(nameof(DestroyFloor), 1f);
     }
 
 }
