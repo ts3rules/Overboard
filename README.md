@@ -18,7 +18,7 @@ Inspired by classic party games such as Crash Bash and Mario Party, Overboard is
 
 
 
-[\*Gameplay video](https://www.youtube.com/watch?v=aBZtHntaHQU)\*
+[\*Gameplay video](https://www.youtube.com/watch?v=aBZtHntaHQU)
 
 
 
