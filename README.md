@@ -18,7 +18,7 @@ Inspired by classic party games such as Crash Bash and Mario Party, Overboard is
 
 
 
-[\*Gameplay video](https://www.youtube.com/watch?v=aBZtHntaHQU)
+[\*Gameplay video\*](https://www.youtube.com/watch?v=aBZtHntaHQU)
 
 
 
@@ -121,6 +121,8 @@ Inspired by Crash Bash's Ballistix, Ballistix 2 is being developed for up to fou
 
 
 !\[Gameplay](Images/Ballistix 2/Early game play.png)
+
+
 
 \---
 
