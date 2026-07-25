@@ -35,7 +35,7 @@ public class BallistixMovementController : MonoBehaviour
     {
       
         
-            Vector3 move = new Vector3(movement.x, 0, movement.y);
+            Vector3 move = new Vector3(- movement.x, 0, - movement.y);
             //move = move.normalized;
             rb.AddForce(move * speed);
         
