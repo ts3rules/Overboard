@@ -20,24 +20,24 @@ public class BallisticBall : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            // Handle collision with the player
+
             rb.AddForce(-collision.contacts[0].normal * 10f, ForceMode.Impulse);
             Debug.Log("Ball collied with another ball!");
-            // You can add additional logic here, such as applying damage or effects to the player
         }
+            
     }
 
-    private void FixedUpdate()
-    {
-        if (rb.linearVelocity.magnitude < 1f)
-        {
-            Vector3 randomDirection =
-                new Vector3(
-                    Random.Range(-1f, 1f),
-                    0,
-                    Random.Range(-1f, 1f));
+    //private void FixedUpdate()
+    //{
+       // if (rb.linearVelocity.magnitude < 1f)
+       // {
+          //  Vector3 randomDirection =
+               // new Vector3(
+                  //  Random.Range(-1f, 1f),
+                 //   0,
+               //     Random.Range(-1f, 1f));
 
-            rb.AddForce(randomDirection.normalized * speed);
-        }
-    }
+           // rb.AddForce(randomDirection.normalized * speed);
+       // }
+   // }
 }
