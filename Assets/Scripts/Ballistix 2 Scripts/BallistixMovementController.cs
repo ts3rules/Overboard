@@ -35,9 +35,31 @@ public class BallistixMovementController : MonoBehaviour
     {
       
         
-            Vector3 move = new Vector3(- movement.x, 0, - movement.y);
+             switch (playerSetup.playerIndex)
+        {
+            case 0:
+                Vector3 move = new Vector3(-movement.x, 0, -movement.y);
+                rb.AddForce(move * speed);
+                break;
+
+            case 1:
+                move = new Vector3(movement.x, 0, movement.y);
+                rb.AddForce(move * speed);
+                break;
+
+            case 2:
+                move = new Vector3(movement.x, 0, movement.y);
+                rb.AddForce(move * speed);
+                break;
+
+            case 3:
+                move = new Vector3(movement.x, 0, movement.y);
+                rb.AddForce(move * speed);
+                break;
+        }
+        
             //move = move.normalized;
-            rb.AddForce(move * speed);
+
         
 
 

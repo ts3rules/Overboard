@@ -1,0 +1,8 @@
+<!-- UNITY CODE ASSIST INSTRUCTIONS START -->
+- Project name: Overboard
+- Unity version: Unity 6000.3.6f1
+- Active game object:
+  - Name: Player1Camera
+  - Tag: Untagged
+  - Layer: Default
+<!-- UNITY CODE ASSIST INSTRUCTIONS END -->
