@@ -27,7 +27,7 @@ public class BallistixMovementController : MonoBehaviour
     public void SetMovement(Vector2 direction)
     {
         movement = direction;
-        Debug.Log(movement);
+        //Debug.Log(movement);
     }
 
  

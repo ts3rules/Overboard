@@ -4,24 +4,52 @@ using UnityEngine.UIElements.Experimental;
 public class BallistixScoreManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public GameObject[] goalTrackers;
-    private int lives = 2;
-    private int greenLives = 0;
-    private int purpleLives = 0;
-    private int redLives = 0;
-    private int blueLives = 0;
-
-
-
+    public BallistixGoalTracker[] goalTrackers;
+    public BallistixPlayerSetup[] players;
+    private int[] playerLives = new int[4];
+  
+    
     void Start()
     {
        
-
+        for (int i = 0; i < playerLives.Length; i++)
+        {
+            playerLives[i] = BallistixGameSettings.startingLives;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-         ///if(goalTrackers )
+        
     }
+
+    public void GoalScore(int goalTrackerIndex)
+    {
+        playerLives[goalTrackerIndex]--;
+
+        if(playerLives[goalTrackerIndex] <= 0)
+        {
+            Debug.Log($"Manager: {gameObject.name}");
+            Debug.Log($"Array Length: {goalTrackers.Length}");
+
+            for (int i = 0; i < goalTrackers.Length; i++)
+            {
+                Debug.Log($"goalTrackers[{i}] = {goalTrackers[i]}");
+            }
+            goalTrackers[goalTrackerIndex].EnableBlocker();
+            PlayerIsOut(goalTrackerIndex);
+        }
+    }
+
+    public void PlayerIsOut(int goalTrackerIndex)
+    {
+        players[goalTrackerIndex].PlayerOut();
+    }
+
+
+     
+
 }
+
+

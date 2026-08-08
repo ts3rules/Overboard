@@ -7,6 +7,7 @@ public class BalllistixPaddles : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject Paddle; // Reference to the paddle object
+    public 
     Rigidbody rb;
     public float speed = 5f; // Speed at which the paddle hits the ball 
     private InputAction powerShot;

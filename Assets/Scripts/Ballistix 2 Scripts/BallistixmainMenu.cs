@@ -7,6 +7,7 @@ public class BallstixmainMenu : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject mainMenuUI;
     public GameObject choosePlayers;
+    public GameObject gameSettings;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartGame()
@@ -18,7 +19,9 @@ public class BallstixmainMenu : MonoBehaviour
     {
         choosePlayers.SetActive(false);
         mainMenuUI.SetActive(false);
+        gameSettings.SetActive(false);
         optionsMenu.SetActive(true);
+
 
     }
 
@@ -26,6 +29,7 @@ public class BallstixmainMenu : MonoBehaviour
     {
         choosePlayers.SetActive(false);
         optionsMenu.SetActive(false);
+        gameSettings.SetActive(false);
         mainMenuUI.SetActive(true);
     }
 
@@ -33,6 +37,7 @@ public class BallstixmainMenu : MonoBehaviour
     {
         optionsMenu.SetActive(false);
         mainMenuUI.SetActive(false);
+        gameSettings.SetActive(false);
         choosePlayers.SetActive(true);
     }
 
@@ -41,9 +46,16 @@ public class BallstixmainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }   
+    }
 
-   
+    public void GameSettings()
+    {
+        choosePlayers.SetActive(false);
+        optionsMenu.SetActive(false);
+        mainMenuUI.SetActive(false);
+        gameSettings.SetActive(true);
+    }
+
 
 
 }

@@ -6,13 +6,20 @@ public class BallistixGoalControler : MonoBehaviour
     private int player2score;
     private int player3score;
     private int player4score;
-    private int lives = 10;
+    private int lives = BallistixGameSettings.startingLives;
+    public GameObject player1;
+    public GameObject player2;
+    public GameObject player3;
+    public GameObject player4;
+
+
+
     public GameObject[] goalBlockers;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject[] goaltraker; 
     void Start()
     {
-      
+        Debug.Log("starting lives = " + lives);
     }
 
     // Update is called once per frame
@@ -24,6 +31,8 @@ public class BallistixGoalControler : MonoBehaviour
             //BallistixBlockers blocker = GetComponent<BallistixBlockers>();
             goalBlockers[0].SetActive(true);
             
+
+
         }
         if (player2score >= lives)
         {

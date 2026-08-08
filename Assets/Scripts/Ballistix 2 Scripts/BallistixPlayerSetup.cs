@@ -3,12 +3,17 @@ using UnityEngine;
 public class BallistixPlayerSetup : MonoBehaviour
 {
     public int playerIndex;
+    [SerializeField] private BallistixDeadCamSetup deadCamSetup;
 
-    private Camera playerCamera;
+    public GameObject player;
+
+
+    [SerializeField] private Camera playerCamera;
+    
 
     private void Awake()
     {
-        playerCamera = GetComponentInChildren<Camera>();
+        
     }
 
     private void Start()
@@ -38,6 +43,21 @@ public class BallistixPlayerSetup : MonoBehaviour
                 playerCamera.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
                 break;
         }
+    }
+
+    public void PlayerOut()
+    {
+        Debug.Log("Player Out");
+        playerCamera.enabled = false;
+        Debug.Log(playerIndex);
+        deadCamSetup.EnableDeadCam(playerIndex);
+        GetComponent<BalllistixPaddles>().enabled = false;
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        renderer.enabled = false;
+        Collider col = GetComponent<Collider>();
+        col.enabled = false;
+
+
     }
 }
 
