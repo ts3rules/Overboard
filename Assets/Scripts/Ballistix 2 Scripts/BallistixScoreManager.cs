@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements.Experimental;
 
 public class BallistixScoreManager : MonoBehaviour
@@ -7,8 +8,10 @@ public class BallistixScoreManager : MonoBehaviour
     public BallistixGoalTracker[] goalTrackers;
     public BallistixPlayerSetup[] players;
     private int[] playerLives = new int[4];
-  
-    
+    public BallistixPlayerUI[] playerUIs;
+    public BallistixGameUI GameUI;
+
+
     void Start()
     {
        
@@ -27,8 +30,9 @@ public class BallistixScoreManager : MonoBehaviour
     public void GoalScore(int goalTrackerIndex)
     {
         playerLives[goalTrackerIndex]--;
+        playerUIs[goalTrackerIndex].LoseLife();
 
-        if(playerLives[goalTrackerIndex] <= 0)
+        if (playerLives[goalTrackerIndex] <= 0)
         {
             Debug.Log($"Manager: {gameObject.name}");
             Debug.Log($"Array Length: {goalTrackers.Length}");
@@ -39,6 +43,8 @@ public class BallistixScoreManager : MonoBehaviour
             }
             goalTrackers[goalTrackerIndex].EnableBlocker();
             PlayerIsOut(goalTrackerIndex);
+            GameUI.Results(goalTrackerIndex);
+         
         }
     }
 

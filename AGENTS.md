@@ -2,7 +2,7 @@
 - Project name: Overboard
 - Unity version: Unity 6000.3.6f1
 - Active game object:
-  - Name: Player4Camera
+  - Name: GameUI
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
