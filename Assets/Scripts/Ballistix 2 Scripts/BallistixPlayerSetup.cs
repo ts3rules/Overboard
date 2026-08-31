@@ -7,9 +7,14 @@ public class BallistixPlayerSetup : MonoBehaviour
 
     public GameObject player;
 
+    //for working out the results for shotout mode
+    public int playerPositon = 0;
 
+  
     [SerializeField] private Camera playerCamera;
-    
+
+    public Color playerColour;
+
 
     private void Awake()
     {
@@ -19,6 +24,7 @@ public class BallistixPlayerSetup : MonoBehaviour
     private void Start()
     {
         SetupCamera();
+        playerColour = player.GetComponent<Renderer>().material.color;
     }
 
     private void SetupCamera()
@@ -59,5 +65,7 @@ public class BallistixPlayerSetup : MonoBehaviour
 
 
     }
+
+    
 }
 

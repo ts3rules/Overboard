@@ -9,11 +9,22 @@ public class BallistixGameSettings : MonoBehaviour
 
     //default lifes for the players
     public static int startingLives = 10;
+
+    //default starting goal target
+    public static int goalTarget = 10;
+
+    //default round time
+    public static int roundTime = 5;
+
     //default starting game mode 
     public static GameMode startingMode = GameMode.Classic;
 
     //lives values
     [SerializeField] private TextMeshProUGUI livesValue;
+
+    [SerializeField] private TextMeshProUGUI RoundTimeValue;
+
+    [SerializeField] private TextMeshProUGUI GoalTargetValue;
 
     [SerializeField] private TextMeshProUGUI gameModeValue;
 
@@ -35,6 +46,8 @@ public class BallistixGameSettings : MonoBehaviour
     {
         livesValue.text = startingLives.ToString();
         gameModeValue.text = startingMode.ToString();
+        GoalTargetValue.text = goalTarget.ToString();
+        RoundTimeValue.text = roundTime.ToString();
 
     }
 
@@ -49,6 +62,33 @@ public class BallistixGameSettings : MonoBehaviour
         startingLives = Mathf.Clamp(startingLives - 1, 1, 99);
         livesValue.text = startingLives.ToString();
     }
+
+    public void IncreaseScoreTarget()
+    {
+        goalTarget = Mathf.Clamp(goalTarget + 1, 1, 99);
+        GoalTargetValue.text = goalTarget.ToString();
+    }
+
+    public void DecreaseScoreTarget()
+    {
+        goalTarget = Mathf.Clamp(goalTarget - 1, 1, 99);
+        GoalTargetValue.text = goalTarget.ToString();
+    }
+
+    public void IncreaseRoundLenght()
+    {
+        roundTime = Mathf.Clamp(roundTime + 1, 1, 10);
+        RoundTimeValue.text = roundTime.ToString();
+    }
+
+    public void DecreaseRoundLenght()
+    {
+        roundTime = Mathf.Clamp(roundTime - 1, 1, 10);
+        RoundTimeValue.text = roundTime.ToString();
+    }
+
+
+
 
     public void ChangeGameMode()
     {

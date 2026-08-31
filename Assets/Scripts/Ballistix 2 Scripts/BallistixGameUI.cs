@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 public class BallistixGameUI : MonoBehaviour
 {
     public BallistixPlayerSetup[] players;
@@ -12,6 +15,8 @@ public class BallistixGameUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SecondValue;
     [SerializeField] private TextMeshProUGUI ThirdValue;
     [SerializeField] private TextMeshProUGUI ForthValue;
+
+    [SerializeField] private TextMeshProUGUI tieGame;
 
     [SerializeField] private Button resultsButton;
 
@@ -109,6 +114,46 @@ public class BallistixGameUI : MonoBehaviour
         resultsButton.interactable = true;
     }
 
+    public void ShootOutResults(List<BallistixPlayerSetup> results)
+    {
+        var groupedResults = results.GroupBy(player => player.playerPositon);
+        FirstValue.text = "";
+        SecondValue.text = "";
+        ThirdValue.text = "";
+        ForthValue.text = "";
+
+        foreach (var group in groupedResults)
+        {
+            string playerNames = "";
+
+            foreach (var player in group)
+            {
+                playerNames += player.name + " ";
+            }
+
+            if (group.Key == 0)
+            {
+                FirstValue.text = playerNames;
+            }
+            else if (group.Key == 1)
+            {
+                SecondValue.text = playerNames;
+            }
+            else if (group.Key == 2)
+            {
+                ThirdValue.text = playerNames;
+            }
+            else if (group.Key == 3)
+            {
+                ForthValue.text = playerNames;
+            }
+        }
+
+        EndCam.enabled = true;
+        StartCoroutine(EnableResultsButton());
+
+
+    }
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("Ballistix 2 Menu");

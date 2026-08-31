@@ -1,6 +1,7 @@
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static BallistixGameSettings;
 
 public class BallistixGoalTracker : MonoBehaviour
 
@@ -10,6 +11,8 @@ public class BallistixGoalTracker : MonoBehaviour
     public GameObject goalTracker;
     public GameObject goalBlocker;
     public int goalTrackerIndex;
+
+    public BallistixBall ball;
     void Start()
     {
         
@@ -25,7 +28,17 @@ public class BallistixGoalTracker : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            scoreManager.GoalScore(goalTrackerIndex);
+            if (startingMode == GameMode.Classic)
+            {
+                scoreManager.GoalScore(goalTrackerIndex);
+            }
+            if (startingMode == GameMode.Shootout)
+            {
+                BallistixBall ball = other.gameObject.GetComponent<BallistixBall>();
+                scoreManager.Shootout(ball.BallPlayerNumber, goalTrackerIndex);
+            }
+            
+          
         }
     }
 
