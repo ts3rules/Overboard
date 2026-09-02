@@ -2,6 +2,8 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static BallistixGameSettings;
+
 
 public class BallistixSpawnManager : MonoBehaviour
 {
@@ -17,10 +19,30 @@ public class BallistixSpawnManager : MonoBehaviour
     private int requiredballs = 1;
     private float lastSpawnTime;
     private float spawnSpeed;
+
+    BallistixPlayerSpawn playerSpawn;
+
+
+
+    public GameObject[] playerSpawners;
     void Start()
     {
         // SpawnBall();
-      
+        int i = 0;
+      foreach(var spawner in playerSpawners)
+        {
+            if (playerOrAI[i] == true)
+            {
+                BallistixPlayerSpawn spawn = spawner.gameObject.GetComponent<BallistixPlayerSpawn>();
+                spawn.SpawnPlayer();
+            }
+            else
+            {
+                BallistixPlayerSpawn spawn = spawner.gameObject.GetComponent<BallistixPlayerSpawn>();
+                spawn.SpawnAi();
+            }
+            i++;
+        }
 
 
 
