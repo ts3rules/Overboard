@@ -12,6 +12,7 @@ public class BallistixSpawnManager : MonoBehaviour
     //array of spawners for the balls to spawn from
     float angle; 
     public GameObject [] spawner;
+
     public GameObject test;
     public GameObject prefabBall;
     private GameObject curnrentball;

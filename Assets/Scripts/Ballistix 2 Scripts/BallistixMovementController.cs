@@ -10,13 +10,14 @@ public class BallistixMovementController : MonoBehaviour
     private Vector2 movement;
     private float boostAmount = 2f;
     private float boostDuration = 5f;
-    private BallistixPlayerSetup playerSetup;
-        
+
+    public int playerIndex;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerSetup = GetComponent<BallistixPlayerSetup>();
+      
     }
 
     // Update is called once per frame
@@ -35,7 +36,7 @@ public class BallistixMovementController : MonoBehaviour
     {
       
         
-             switch (playerSetup.playerIndex)
+             switch (playerIndex)
         {
             case 0:
                 Vector3 move = new Vector3(-movement.x, 0, -movement.y);

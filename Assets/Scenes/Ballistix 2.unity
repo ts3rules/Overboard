@@ -1491,6 +1491,7 @@ MonoBehaviour:
   spawnerIndex: 3
   prefabPlayer: {fileID: 6448895338223240386, guid: 4f322c000a0420a46b031274d03aeac6, type: 3}
   prefabAi: {fileID: 1786533865521956471, guid: 53c0fb8f7d8f3b04eae5b3e4b1d095db, type: 3}
+  goal: {fileID: 1143827244}
   spawner: {fileID: 281629523}
 --- !u!1 &355322958
 GameObject:
@@ -4251,6 +4252,7 @@ MonoBehaviour:
   spawnerIndex: 0
   prefabPlayer: {fileID: 6448895338223240386, guid: 4f322c000a0420a46b031274d03aeac6, type: 3}
   prefabAi: {fileID: 1786533865521956471, guid: 53c0fb8f7d8f3b04eae5b3e4b1d095db, type: 3}
+  goal: {fileID: 512126589}
   spawner: {fileID: 1151633511}
 --- !u!1 &1251297841
 GameObject:
@@ -5524,6 +5526,7 @@ MonoBehaviour:
   spawnerIndex: 2
   prefabPlayer: {fileID: 6448895338223240386, guid: 4f322c000a0420a46b031274d03aeac6, type: 3}
   prefabAi: {fileID: 1786533865521956471, guid: 53c0fb8f7d8f3b04eae5b3e4b1d095db, type: 3}
+  goal: {fileID: 209045543}
   spawner: {fileID: 1632724708}
 --- !u!1 &1729921186
 GameObject:
@@ -6586,6 +6589,7 @@ MonoBehaviour:
   spawnerIndex: 1
   prefabPlayer: {fileID: 6448895338223240386, guid: 4f322c000a0420a46b031274d03aeac6, type: 3}
   prefabAi: {fileID: 1786533865521956471, guid: 53c0fb8f7d8f3b04eae5b3e4b1d095db, type: 3}
+  goal: {fileID: 1881523769}
   spawner: {fileID: 2050955658}
 --- !u!1 &2099037283
 GameObject:
